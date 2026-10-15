@@ -3,21 +3,15 @@ spring:
     name: backend
 
   datasource:
-    url: jdbc:postgresql://localhost:5432/chatease
-    username: postgres
-    password: ${DB_PASSWORD:123456}
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/chatease}
+    username: ${SPRING_DATASOURCE_USERNAME:postgres}
+    password: ${SPRING_DATASOURCE_PASSWORD:${DB_PASSWORD:123456}}
     driver-class-name: org.postgresql.Driver
 
   jpa:
     hibernate:
       ddl-auto: update
-    show-sql: true
+    show-sql: false
 
-app:
-  jwt:
-    secret: ${CHATEASE_JWT_SECRET:dev-only-change-this-secret-key-please-123456789}
-    expiration-ms: 86400000
-
-logging:
-  level:
-    org.springframework.security: DEBUG
+server:
+  port: ${PORT:8080}
