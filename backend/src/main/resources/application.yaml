@@ -15,3 +15,8 @@ spring:
 
 server:
   port: ${PORT:8080}
+
+app:
+  jwt:
+    secret: ${CHATEASE_JWT_SECRET:dev-only-change-this-secret-key-please-123456789}
+    expiration-ms: 86400000
