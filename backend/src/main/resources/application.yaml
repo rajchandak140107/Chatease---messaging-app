@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: backend
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/chatease
+    username: postgres
+    password: ${DB_PASSWORD:123456}
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+app:
+  jwt:
+    secret: ${CHATEASE_JWT_SECRET:dev-only-change-this-secret-key-please-123456789}
+    expiration-ms: 86400000
+
+logging:
+  level:
+    org.springframework.security: DEBUG
