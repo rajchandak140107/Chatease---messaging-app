@@ -5,7 +5,7 @@ spring:
   datasource:
     url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/chatease}
     username: ${SPRING_DATASOURCE_USERNAME:postgres}
-    password: ${SPRING_DATASOURCE_PASSWORD:${DB_PASSWORD:123456}}
+    password: ${SPRING_DATASOURCE_PASSWORD:123456}
     driver-class-name: org.postgresql.Driver
 
   jpa:
@@ -18,5 +18,9 @@ server:
 
 app:
   jwt:
-    secret: ${CHATEASE_JWT_SECRET:SF5vQg0ktMnBFlvdRT9e1GJ9MKGyKXVw1TrHQ9nwlFU= }
+    secret: ${CHATEASE_JWT_SECRET:dev-only-change-this-secret-key-please-123456789}
     expiration-ms: 86400000
+
+logging:
+  level:
+    org.springframework.security: INFO
