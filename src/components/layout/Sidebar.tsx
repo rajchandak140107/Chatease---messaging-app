@@ -385,7 +385,8 @@ export default function Sidebar({
             const unread = active
               ? 0
               : conversation.unreadCount ?? 0;
-            const mine = false;
+            const mine =
+              conversation.lastMessageSenderId === session?.id;
 
             return (
               <button
